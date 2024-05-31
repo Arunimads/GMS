@@ -39,18 +39,10 @@
                         <td>{{member.mobile_number}}</td>
                         <td>{{member.address}}</td>
                         <td class="text-nowrap">{{member.join_date}}</td>
-                        <td>  
-                          <a href="/edit_member/{{member.id}}"
-                          class="btn btn-primary"
-                          >Edit
-                          </a>
-                        </td>
-                        <td>  
-                          <a href="/delete_member/{{member.id}}"
-                          class="btn btn-danger"
-                          >Delete
-                          </a>
-                        </td>
+                        
+                        <td><button onclick="ConfirmEdit('/edit_member/{{member.id}}')"class="btn btn-primary">Edit</button></td>
+                        
+                        <td><button onclick="ConfirmDelete('/delete_member/{{member.id}}')" class="btn btn-danger">Delete</button></td>
                 </tr>
                     {% endfor %}
                 </tbody>
@@ -58,4 +50,16 @@
         </div>
     </div>
 </div>
+<script>
+  function ConfirmDelete(deleteUrl){
+    if (confirm('do you want to delete member?')){
+    window.location.href=deleteUrl
+    }
+  }
+  function ConfirmEdit(editUrl){
+    if(confirm('do you want to edit member ')){
+      window.location.href=editUrl
+    }
+  }
+</script>
 {% endblock %}
