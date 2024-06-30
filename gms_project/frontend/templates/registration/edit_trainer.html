@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center mt-5">
+        <div class="col-12 text-center mb-3">
+          <button
+            type="button"
+            class="btn btn-warning"
+            onclick="window.location.href = '/trainer_list/'"
+          >
+            Trainer List
+          </button>
+        </div>
+    </div>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h2>Edit Trainer</h2>
+      <form method="post">
+        {% csrf_token %} {{ trainer_form.as_p }}
+        <button type="submit" class="btn btn-primary">Update</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% block content %}
+
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h2>Edit Package</h2>
+      <form method="post">
+        {% csrf_token %} {{ package_form.as_p }}
+        <button type="submit" class="btn btn-primary">Update</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

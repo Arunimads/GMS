@@ -7,7 +7,7 @@
           <button
             type="button"
             class="btn btn-warning"
-            onclick="window.location.href = '/members_list/'"
+            onclick="window.location.href = '/members_list/'"  
           >
             Members List
           </button>
@@ -16,10 +16,11 @@
 
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <h2>Registration Form</h2>
+            <h2>Add Member</h2>
             <form method="post">
                 {% csrf_token %}
-                {{ form.as_p }}
+                {{ user_form.as_p }}
+                {{ member_form.as_p }}
                 <button type="submit" class="btn btn-primary">Register</button>
             </form>
         </div>

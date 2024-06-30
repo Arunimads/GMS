@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <h2>Add Measurement</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{measurement_form}}
+            <input type="submit" name="" class="btn btn-primary mt-3" value="Save measurements" id="">
+        </form>
+    </div>
+</div>
+{% endblock %}

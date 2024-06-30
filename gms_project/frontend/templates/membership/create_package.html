@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <h2>Create Packages</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{package_form}}
+            <input type="submit" value="Save Package" name="" id="">
+        </form>
+    </div>
+</div>
+
+{% endblock %}

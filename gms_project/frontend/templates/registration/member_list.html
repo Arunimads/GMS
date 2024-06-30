@@ -25,6 +25,7 @@
                     <th scope="col">Mobile</th>
                     <th scope="col">Address</th>
                     <th scope="col">Joined date</th>
+                    <th scope="col">Login Access</th>
                     <th scope="col">Edit</th>
                     <th scope="col">Delete</th>
                   </tr>
@@ -39,12 +40,23 @@
                         <td>{{member.mobile_number}}</td>
                         <td>{{member.address}}</td>
                         <td class="text-nowrap">{{member.join_date}}</td>
-                        
+                        <td class="text-nowrap">
+                          <a href="/approve_member/{{member.id}}">
+                            <button {% if member.user.is_active %}disabled{% endif %}>
+                              {% if member.user.is_active %} Approved {% else %} Approve {% endif %}
+                            </button>
+                          </a>
+                          <a href="/disapprove_member/{{member.id}}">
+                            <button {% if not member.user.is_active %}disabled{% endif %}>
+                              {% if member.user.is_active %} Disapprove {% else %} Disapproved {% endif %}
+                            </button>
+                          </a>
+                        </td>
                         <td><button onclick="ConfirmEdit('/edit_member/{{member.id}}')"class="btn btn-primary">Edit</button></td>
                         
                         <td><button onclick="ConfirmDelete('/delete_member/{{member.id}}')" class="btn btn-danger">Delete</button></td>
                 </tr>
-                    {% endfor %}
+                    {% endfor %} 
                 </tbody>
               </table>
         </div>

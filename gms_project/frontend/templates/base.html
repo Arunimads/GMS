@@ -68,9 +68,21 @@
       Gym Management System
     </div>
 
-    <div class="sidebar mt-5" id="sidebar">
-      <a href="{% url 'register' %}">Register</a>
-      <a href="{% url 'members_list' %}">Members List</a>
+    <div class="sidebar mt-5" id="sidebar" style="z-index: 999;">
+      {% if user.is_superuser %}
+      <a href="/register/">Member Register</a>
+      <a href="/members_list/">Members List</a>
+      <a href="/add_trainer/">Trainer Register </a>
+      <a href="/trainer_list/">Trainers List</a>
+      <a href="/create_package/">Create Package</a>
+      <a href="/view_packages/">Packages List</a>
+
+      {% endif %}
+      {% if not user.is_staff %}
+      <a href="/add_measurements/">Add measurements</a>
+      <a href="/view_measurements/">Track Your Measurements</a>
+      {% endif %}
+      <a href="/" class="text-white">Logout</a>
     </div>
 
     <div class="content" id="content">

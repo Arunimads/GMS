@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-12 text-center mb-3">
+      <button
+        type="button"
+        class="btn btn-success"
+        onclick="window.location.href = '/add_trainer/'"
+      >
+        Register Trainer
+      </button>
+    </div>
+  </div>
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <h2>Trainer List</h2>
+            <table class="table table-success table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Sex</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Mobile</th>
+                    <th scope="col">Hire date</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for trainer in trainers %}
+                    <tr>
+                        <td class="text-nowrap">{{trainer.first_name}} {{trainer.last_name}}</td>
+                        <td>{{trainer.age}}</td>
+                        <td>{{trainer.sex}}</td>
+                        <td>{{trainer.email}}</td>
+                        <td>{{trainer.mobile_number}}</td>
+                        <td class="text-nowrap">{{trainer.hire_date}}</td>
+                        <td><button onclick="ConfirmEdit('/edit_trainer/{{trainer.id}}')"class="btn btn-primary">Edit</button></td>
+                        
+                        <td><button onclick="ConfirmDelete('/delete_trainer/{{trainer.id}}')" class="btn btn-danger">Delete</button></td> 
+                </tr>
+                    {% endfor %}
+                
+        
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+<script>
+  function ConfirmDelete(deleteUrl){
+    if (confirm('do you want to delete trainer?')){
+    window.location.href=deleteUrl
+    }
+  }
+  function ConfirmEdit(editUrl){
+    if(confirm('do you want to edit trainer? ')){
+      window.location.href=editUrl
+    }
+  }
+</script>
+{% endblock %}

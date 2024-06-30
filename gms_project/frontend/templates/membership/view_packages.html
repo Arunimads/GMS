@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-12">
+        <h2>Packages</h2>
+        <table class="table table-success table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Package Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Duration in months</th>
+                <th scope="col">Edit</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+                {% for package in packages %}
+                <tr>
+                    <td>{{package.name}}</td>
+                    <td>{{package.price}}</td>
+                    <td>{{package.duration}}</td>
+                    <td><button onclick="ConfirmEdit('/edit_packages/{{package.id}}')"class="btn btn-primary">Edit</button></td>
+
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+    </div>   
+    <script>
+        // function ConfirmDelete(deleteUrl){
+        //   if (confirm('do you want to delete trainer?')){
+        //   window.location.href=deleteUrl
+        //   }
+        // }
+        function ConfirmEdit(editUrl){
+          if(confirm('do you want to edit package? ')){
+            window.location.href=editUrl
+          }
+        }
+      </script>
+                    
+{% endblock %}
+

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-12">
+        <h2>Track Measurements </h2>
+        <table class="table table-success table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Height</th>
+                <th scope="col">Weight</th>
+                <th scope="col">Biceps</th>
+                <th scope="col">Forearm</th>
+                <th scope="col">Shoulder</th>
+                <th scope="col">Chest</th>
+                <th scope="col">Waist</th>
+                <th scope="col">Thighs</th>
+                <th scope="col">Calf</th>
+                <th scope="col">Measured date</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for measurement in measurements %}
+                <tr>
+                    <td>{{measurement.height}}</td>
+                    <td>{{measurement.weight}}</td>
+                    <td>{{measurement.biceps}}</td>
+                    <td>{{measurement.forearm}}</td>
+                    <td>{{measurement.shoulder}}</td>
+                    <td>{{measurement.chest}}</td>
+                    <td>{{measurement.waist}}</td>
+                    <td>{{measurement.thighs}}</td>
+                    <td>{{measurement.calf}}</td>
+                    <td>{{measurement.measured_date}}</td>
+
+
+
+                </tr>
+                {% endfor %} 
+            </tbody>
+          </table>
+    </div>
+</div>
+</div>
+{% endblock %}
